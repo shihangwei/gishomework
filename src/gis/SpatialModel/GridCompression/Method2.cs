@@ -6,13 +6,13 @@ using System.Text;
 namespace SpatialModel.GridCompression
 {
     /// <summary>
-    /// 压缩编码-链式编码
+    /// 压缩编码-行程编码
     /// </summary>
-    class Method1 : ICompress
+    class Method2 : ICompress
     {
         public void DoCompress(Color[,] colors)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }
