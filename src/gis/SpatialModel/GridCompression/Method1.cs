@@ -113,6 +113,9 @@ namespace SpatialModel.GridCompression
 
             return null;
         }
+        /// <summary>
+        /// 左上
+        /// </summary>
         private XY Add0(Color c, int x, int y, StringBuilder sb)
         {
             if ((x - 1) >= 0 && (y - 1) >= 0)
@@ -120,6 +123,9 @@ namespace SpatialModel.GridCompression
 
             return null;
         }
+        /// <summary>
+        /// 上
+        /// </summary>
         private XY Add1(Color c, int x, int y, StringBuilder sb)
         {
             if ((y - 1) >= 0)
@@ -127,6 +133,9 @@ namespace SpatialModel.GridCompression
 
             return null;
         }
+        /// <summary>
+        /// 右上
+        /// </summary>
         private XY Add2(Color c, int x, int y, StringBuilder sb)
         {
             if ((x + 1) < tColors.GetLength(0) && (y - 1) >= 0)
@@ -134,6 +143,9 @@ namespace SpatialModel.GridCompression
 
             return null;
         }
+        /// <summary>
+        /// 右
+        /// </summary>
         private XY Add3(Color c, int x, int y, StringBuilder sb)
         {
             if ((x + 1) < tColors.GetLength(0))
@@ -141,6 +153,9 @@ namespace SpatialModel.GridCompression
 
             return null;
         }
+        /// <summary>
+        /// 右下
+        /// </summary>
         private XY Add4(Color c, int x, int y, StringBuilder sb)
         {
             if ((x + 1) < tColors.GetLength(0) && (y + 1) < tColors.GetLength(1))
@@ -148,6 +163,9 @@ namespace SpatialModel.GridCompression
 
             return null;
         }
+        /// <summary>
+        /// 下
+        /// </summary>
         private XY Add5(Color c, int x, int y, StringBuilder sb)
         {
             if ((y + 1) < tColors.GetLength(1))
@@ -155,6 +173,9 @@ namespace SpatialModel.GridCompression
 
             return null;
         }
+        /// <summary>
+        /// 左下
+        /// </summary>
         private XY Add6(Color c, int x, int y, StringBuilder sb)
         {
             if ((x - 1) >= 0 && (y + 1) < tColors.GetLength(1))
@@ -162,6 +183,9 @@ namespace SpatialModel.GridCompression
 
             return null;
         }
+        /// <summary>
+        /// 左
+        /// </summary>
         private XY Add7(Color c, int x, int y, StringBuilder sb)
         {
             if ((x - 1) >= 0)
@@ -193,9 +217,10 @@ namespace SpatialModel.GridCompression
                     {
                         foreach (var v in kp.Value)
                         {
-                            sw.WriteLine($"R:{kp.Key.R},G:{kp.Key.G},B:{kp.Key.B},A:{kp.Key.A},data:{v}");
+                            sw.Write($"{kp.Key.ToArgb()}:{v};");
                         }
                     }
+                    sw.WriteLine();
                 }
             }
         }
