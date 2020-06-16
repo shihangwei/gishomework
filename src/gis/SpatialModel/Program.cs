@@ -25,7 +25,8 @@ namespace SpatialModel
 
         static Color[,] GetColors()
         {
-            string fileName = AppDomain.CurrentDomain.BaseDirectory + @"Files/jugg.png";
+            //string fileName = AppDomain.CurrentDomain.BaseDirectory + @"Files/jugg.png";
+            string fileName = AppDomain.CurrentDomain.BaseDirectory + @"Files/ndvi_sample.png";
             var bitmap = new Bitmap(fileName);
 
             Console.WriteLine($"file width: {bitmap.Width}, height: {bitmap.Height} .");
