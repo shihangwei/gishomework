@@ -62,6 +62,7 @@ namespace SpatialModel.GridCompression
                                 s = s.Substring(0, s.Length - 1);
 
                             dic[tColor].Add(s);
+                            tSb.Clear();
                         }
                     }
                 }
