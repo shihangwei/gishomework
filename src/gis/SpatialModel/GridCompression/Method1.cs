@@ -75,6 +75,11 @@ namespace SpatialModel.GridCompression
             Console.WriteLine("finished.");
         }
 
+        public void Recover()
+        {
+            throw new NotImplementedException();
+        }
+
         private void ConsoleWrite()
         {
 

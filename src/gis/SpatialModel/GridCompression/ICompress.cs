@@ -8,5 +8,7 @@ namespace SpatialModel.GridCompression
     interface ICompress
     {
         void DoCompress(Color[,] colors);
+
+        void Recover();
     }
 }

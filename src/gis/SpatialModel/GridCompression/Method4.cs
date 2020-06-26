@@ -14,5 +14,10 @@ namespace SpatialModel.GridCompression
         {
             throw new NotImplementedException();
         }
+
+        public void Recover()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
