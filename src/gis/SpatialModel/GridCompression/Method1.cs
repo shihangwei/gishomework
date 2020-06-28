@@ -77,7 +77,40 @@ namespace SpatialModel.GridCompression
 
         public void Recover()
         {
-            throw new NotImplementedException();
+            string lastPath = GetLastFilePath();
+            if (string.IsNullOrEmpty(lastPath)) return;
+
+            // 1. read
+            List<string> colorLineList = new List<string>();
+            try
+            {
+                using (StreamReader sr = new StreamReader(lastPath))
+                {
+                    string line;
+                    while ( (line = sr.ReadLine()) != null)
+                    {
+                        colorLineList.Add(line);
+                    }
+                }
+            }
+            catch (FileNotFoundException ex)
+            { 
+                            
+            }
+
+            // 2. paint
+            foreach (var colorLine in colorLineList)
+            {
+                // paint
+
+                var innerXYs = GetInnerXYs(colorLine);
+                if (innerXYs != null && innerXYs.Any())
+                { 
+                    // paint
+                }
+            }
+
+            // 3. SaveFile image.
         }
 
         private void ConsoleWrite()
@@ -209,6 +242,18 @@ namespace SpatialModel.GridCompression
         }
         #endregion
 
+        #region get inner
+
+        private List<XY> GetInnerXYs(string colorLineStr)
+        {
+            // 1. line is a polygon
+            // 2. if is a polygon, get inner XY
+
+            return null;
+        }
+
+        #endregion
+
         #region savefile
         private void SaveFile()
         {
@@ -229,6 +274,28 @@ namespace SpatialModel.GridCompression
                 }
             }
         }
+        #endregion
+
+        #region readfile
+        private string GetLastFilePath()
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory ;
+
+            List<FileInfo> fileInfoList = new List<FileInfo>();
+            DirectoryInfo d = new DirectoryInfo(path);
+            foreach (FileInfo itemFileInfo in d.GetFiles())
+            {
+                if (itemFileInfo.Extension.ToLower() == ".txt" && itemFileInfo.Name.ToLower().StartsWith("method1_"))
+                {
+                    fileInfoList.Add(itemFileInfo);
+                }
+            }
+
+            var a = fileInfoList.OrderByDescending(x => x.CreationTime).FirstOrDefault()?.FullName;
+
+            return a;
+        }
+
         #endregion
 
         #region clear
